@@ -194,7 +194,7 @@ export const register: Register = on => {
       text: [
         'bloodborne-hud is alive.',
         `HP (context left): ${s.contextUsed === null ? '?' : Math.round(100 - s.contextUsed)}%`,
-        `STA (5h left): ${s.fiveHourUsed === null ? '?' : Math.round(100 - s.fiveHourUsed)}% | Insight (weekly left): ${s.sevenDayUsed === null ? '?' : Math.round(100 - s.sevenDayUsed)}%`,
+        `STA (5h left): ${s.fiveHourUsed === null ? '?' : Math.round(100 - s.fiveHourUsed)}% | Insight (weekly used): ${s.sevenDayUsed === null ? '?' : Math.round(s.sevenDayUsed)}%`,
         `Blood Echoes (tool uses in this conversation): ${s.echoes} | tool.call events seen: ${toolEvents}`,
         `band asked for: ${renderCount} times, last surface: ${lastSurface}`,
         `last error: ${lastError}`,
@@ -230,7 +230,7 @@ export const register: Register = on => {
 
     const hpLeft = s.contextUsed === null ? 100 : clamp(100 - s.contextUsed)
     const staLeft = s.fiveHourUsed === null ? null : clamp(100 - s.fiveHourUsed)
-    const insightLeft = s.sevenDayUsed === null ? null : clamp(100 - s.sevenDayUsed)
+    const insightLeft = s.sevenDayUsed === null ? null : Math.min(99, clamp(s.sevenDayUsed)) // insight grows as the weekly limit is spent (like madness in the game)
 
     const rally = Math.max(hpLeft, lastHpLeft)
     lastHpLeft = hpLeft

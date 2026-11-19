@@ -20,7 +20,7 @@
 | --- | --- |
 | 🟥 **HP** (the long red bar) | **Context left** in this conversation. When it drops, the lost part flashes orange like a rally. |
 | 🟩 **Stamina** (the short green bar) | What is left of your **5-hour usage limit**. |
-| 👁 **Insight** | What is left of your **weekly usage limit**, in %. |
+| 👁 **Insight** | How much of your **weekly usage limit** you have spent, in %. It rises as you use Claude, like Insight (madness) in the game. |
 | 🩸 **Blood Echoes** | How many **tools Claude has used** in this conversation. |
 | *Hunter's Dream* / *The Hunt is On* | Claude idle / Claude working. |
 | **YOU DIED** | Context at 95% or more: time to `/compact` or start a fresh session. |
